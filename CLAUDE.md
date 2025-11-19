@@ -4,125 +4,92 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React-based single-page application for "Cafe & Bistro Lumière", a Japanese cafe/bistro website. The project uses Vite for development and build tooling, React Router with HashRouter for client-side routing, and Tailwind CSS (via CDN) for styling.
+**Cafe & Bistro Lumière** - A Japanese cafe/bistro website built with React, TypeScript, and Vite. Static-hosted single-page application with hash-based routing for Vercel deployment.
+
+**Live Site**: https://bistro-lumiere.vercel.app
+**Repository**: https://github.com/mokayamo/cafe-bistro-lumiere
 
 ## Development Commands
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server (runs on port 3000)
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+npm install           # Install dependencies
+npm run dev          # Start dev server (port 3000)
+npm run build        # Production build
+npm run preview      # Preview production build
 ```
 
-## Architecture
+## Architecture Overview
 
-### Routing Strategy
-- Uses **HashRouter** instead of BrowserRouter for static hosting compatibility
-- Routes: `/` (Home), `/terms` (Terms of Service), `/privacy` (Privacy Policy)
-- All navigation within the app uses hash-based routing (e.g., `#/terms`)
+### Tech Stack
+- **React 19.2.0** + **TypeScript 5.8.2** + **Vite 6.2.0**
+- **Tailwind CSS** (CDN) - No build step required
+- **React Router** (HashRouter for static hosting)
+- **Lucide React** for icons
+
+### Routing & Navigation
+- **HashRouter** (not BrowserRouter) - Required for static hosting compatibility
+- Routes: `/` (Home), `/terms`, `/privacy`
+- Smooth scroll navigation to section IDs: `#menu`, `#about`, `#gallery`, `#access`
+- Cross-page navigation: Header component handles navigation from legal pages back to Home sections with 100ms setTimeout delay
 
 ### Component Structure
 ```
-App.tsx                          # Root component with HashRouter
-├── Layout.tsx                   # Wraps all pages with Header/Footer
-│   ├── Header.tsx              # Sticky navigation with scroll detection
-│   └── Footer.tsx              # Site footer with legal links
-└── pages/
-    ├── Home.tsx                # Main landing page (composition of sections)
-    ├── Terms.tsx               # Terms of Service page
-    └── Privacy.tsx             # Privacy Policy page
+App.tsx (HashRouter + ScrollToTop)
+└── Layout (Header + Footer wrapper)
+    └── Pages (Home, Terms, Privacy)
+        └── Sections (Hero, AboutLite, Menu, AboutDetail, Gallery, Access)
 ```
 
-### Home Page Section Components
-The Home page (`pages/Home.tsx`) is composed of multiple section components in this order:
-1. `Hero` - Hero/banner section with main visual
-2. `AboutLite` - Brief introduction/overview
-3. `Menu` - Menu display
-4. `AboutDetail` - Detailed about section
-5. `Gallery` - Image gallery grid
-6. `Access` - Location, hours, and embedded Google Maps
-
-All section components are in `components/sections/`.
-
-### Navigation System
-The Header component implements a sophisticated navigation system:
-- **Scroll-to-section**: Clicking nav items scrolls to section IDs (`#menu`, `#about`, `#gallery`, `#access`)
-- **Cross-page navigation**: When on `/terms` or `/privacy`, clicking nav items navigates to `/` first, then scrolls to the section
-- The navigation uses `setTimeout` with 100ms delay after route changes to ensure DOM is ready before scrolling
-- Section IDs are defined in each section component (e.g., `<section id="menu">`)
+Home page sections render in this order: Hero → AboutLite → Menu → AboutDetail → Gallery → Access
 
 ### Styling System
-- **Tailwind CSS** loaded via CDN (configured in `index.html`)
-- Custom color theme defined in `tailwind.config`:
-  - `lumiere-base`: #F4EDE3 (Background - warm beige)
-  - `lumiere-accent`: #C2A27A (Gold/Tan accent)
-  - `lumiere-text`: #4A3F35 (Dark Brown text)
-  - `lumiere-white`: #FFFFFF
-- Custom fonts: Noto Sans JP (sans-serif) and Noto Serif JP (serif) from Google Fonts
-- No separate CSS files - all styling via Tailwind utility classes
+Custom Tailwind theme (configured in `index.html`):
+- `lumiere-base`: #F4EDE3 (warm beige background)
+- `lumiere-accent`: #C2A27A (gold accent)
+- `lumiere-text`: #4A3F35 (dark brown text)
+- Fonts: Noto Sans JP (body), Noto Serif JP (headings)
 
-### Module Resolution
-- Path alias `@/*` maps to the project root directory (configured in `tsconfig.json` and `vite.config.ts`)
-- Import maps in `index.html` load React dependencies from CDN (aistudiocdn.com)
-- TypeScript with JSX support (react-jsx transform)
+### Dependency Loading
+- **Development**: npm packages from node_modules
+- **Production**: CDN via importmap (React, React Router, Lucide from aistudiocdn.com)
+- Zero-bundle deployment strategy
 
 ### Type Definitions
-Located in `types.ts`:
-- `MenuItem`: Menu item with name, optional price, optional description
-- `MenuCategory`: Menu category with title and array of items
-- `GalleryImage`: Gallery image with src, alt, and category ('interior' | 'food' | 'exterior' | 'drink')
+See `types.ts` for `MenuItem`, `MenuCategory`, `GalleryImage` interfaces.
 
-## Key Patterns
+## Important Implementation Details
 
-### Scroll Behavior
-- Global smooth scrolling enabled in `index.html` with `scroll-behavior: smooth`
-- `ScrollToTop` component in `App.tsx` scrolls to top on route changes
-- Header implements sticky positioning with transparency changes based on scroll position
+### Navigation Behavior
+The Header component (`components/Header.tsx`) implements scroll-to-section navigation:
+- On Home page: Direct `scrollIntoView`
+- From other pages: Navigate to `/` first, then scroll after 100ms delay
+- Section IDs must match: `top`, `menu`, `about`, `gallery`, `access`
 
 ### Responsive Design
-- Mobile-first approach with breakpoints: `sm:`, `md:`, `lg:`
-- Mobile navigation uses full-screen overlay (slide-in from right)
-- Desktop navigation is horizontal in header
-- All sections use responsive grid layouts
+- Mobile-first with Tailwind breakpoints (sm/md/lg)
+- Mobile: Full-screen overlay menu (slides from right)
+- Desktop: Horizontal navigation bar
+- Header: Sticky with scroll-based transparency changes
 
-### Component Organization
-- All page-level components in `pages/`
-- Reusable components in `components/`
-- Section-specific components in `components/sections/`
-- Each component is a default export with React.FC type
+### Module Resolution
+- Path alias: `@/*` → project root
+- TypeScript: experimental decorators enabled
+- Vite dev server: `0.0.0.0:3000` (network accessible)
 
-## Special Considerations
+## Deployment
 
-### Dependency Loading Strategy
-- **Development**: Uses npm packages (installed via `npm install`)
-- **Production**: Dependencies loaded via CDN through importmap in `index.html`
-- React, React DOM, React Router DOM, and Lucide React all loaded from aistudiocdn.com
-- This dual approach allows for fast iteration locally and zero-bundle deployment
+**Vercel Configuration** (`vercel.json`):
+- Build: `npm run build`
+- Output: `dist/`
+- Framework: Vite
 
-### Environment Variables (Optional)
-- Vite config supports `GEMINI_API_KEY` in `.env.local` (not required for basic functionality)
-- Exposed as both `process.env.API_KEY` and `process.env.GEMINI_API_KEY`
-- No `.env.local` file is committed to the repository
+**GitHub**: https://github.com/mokayamo/cafe-bistro-lumiere
 
-### Development Notes
-- Vite dev server runs on `0.0.0.0:3000` for network access
-- TypeScript with experimental decorators enabled (`experimentalDecorators: true`)
-- Legal pages (Terms/Privacy) are React routes, not static HTML files
+---
 
-# CLAUDE.md
+# 日本語開発ガイドライン
 
-This file provides guidance for development work. Please follow the guidelines and requirements below when proceeding with development.
-
-## Conversation Guidelines
-常に日本語で会話する
+常に日本語で会話してください。
 
 ## AI Security Guidelines
 
