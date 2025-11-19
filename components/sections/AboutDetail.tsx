@@ -4,15 +4,15 @@ const AboutDetail: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-lumiere-base">
       <div className="container mx-auto px-4 md:px-8">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-4xl text-lumiere-text font-bold mb-4">ABOUT</h2>
+          <div className="w-12 h-1 bg-lumiere-accent mx-auto"></div>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-16 items-center">
-          
+
           {/* Text Content */}
           <div className="lg:w-1/2 order-2 lg:order-1">
-            <h2 className="font-serif text-4xl text-lumiere-text font-bold mb-8 relative inline-block">
-              ABOUT
-              <span className="absolute -bottom-2 left-0 w-1/2 h-1 bg-lumiere-accent"></span>
-            </h2>
-            
             <div className="space-y-6 text-lumiere-text/90 leading-relaxed">
               <div>
                 <h3 className="font-serif text-xl font-bold mb-2 text-lumiere-accent">Story</h3>
