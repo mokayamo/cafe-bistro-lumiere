@@ -40,8 +40,8 @@ const Header: React.FC = () => {
 
   const navItems = [
     { label: 'HOME', id: 'top' },
-    { label: 'ABOUT', id: 'about' },
     { label: 'MENU', id: 'menu' },
+    { label: 'ABOUT', id: 'about' },
     { label: 'ACCESS', id: 'access' },
   ];
 
