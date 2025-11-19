@@ -38,37 +38,6 @@ const AboutDetail: React.FC = () => {
                 </p>
               </div>
             </div>
-
-            {/* Shop Info Table */}
-            <div className="mt-12 bg-white p-6 shadow-sm rounded-sm">
-              <table className="w-full text-sm md:text-base">
-                <tbody>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-3 text-left font-serif text-lumiere-accent w-32">店舗名</th>
-                    <td className="py-3">Cafe & Bistro Lumière</td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-3 text-left font-serif text-lumiere-accent">住所</th>
-                    <td className="py-3">東京都目黒区○○1-2-3</td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-3 text-left font-serif text-lumiere-accent">営業時間</th>
-                    <td className="py-3">
-                      平日 11:00–22:00<br />
-                      土日祝 10:00–22:00
-                    </td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-3 text-left font-serif text-lumiere-accent">定休日</th>
-                    <td className="py-3">水曜日</td>
-                  </tr>
-                  <tr>
-                    <th className="py-3 text-left font-serif text-lumiere-accent">座席数</th>
-                    <td className="py-3">28席</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
           </div>
 
           {/* Image */}

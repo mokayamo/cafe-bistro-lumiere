@@ -10,8 +10,39 @@ const Access: React.FC = () => {
           <div className="w-12 h-1 bg-lumiere-accent mx-auto"></div>
         </div>
 
+        {/* Shop Info Table */}
+        <div className="bg-white p-6 md:p-8 shadow-lg rounded-sm max-w-6xl mx-auto mb-8">
+          <table className="w-full text-sm md:text-base">
+            <tbody>
+              <tr className="border-b border-lumiere-base">
+                <th className="py-3 text-left font-serif text-lumiere-accent w-32">店舗名</th>
+                <td className="py-3">Cafe & Bistro Lumière</td>
+              </tr>
+              <tr className="border-b border-lumiere-base">
+                <th className="py-3 text-left font-serif text-lumiere-accent">住所</th>
+                <td className="py-3">東京都目黒区○○1-2-3</td>
+              </tr>
+              <tr className="border-b border-lumiere-base">
+                <th className="py-3 text-left font-serif text-lumiere-accent">営業時間</th>
+                <td className="py-3">
+                  平日 11:00–22:00<br />
+                  土日祝 10:00–22:00
+                </td>
+              </tr>
+              <tr className="border-b border-lumiere-base">
+                <th className="py-3 text-left font-serif text-lumiere-accent">定休日</th>
+                <td className="py-3">水曜日</td>
+              </tr>
+              <tr>
+                <th className="py-3 text-left font-serif text-lumiere-accent">座席数</th>
+                <td className="py-3">28席</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div className="flex flex-col lg:flex-row gap-8 bg-white p-4 md:p-8 shadow-lg rounded-sm max-w-6xl mx-auto">
-          
+
           {/* Info Column */}
           <div className="lg:w-1/3 flex flex-col justify-center gap-8 p-4">
             <div className="flex items-start gap-4">
@@ -24,18 +55,6 @@ const Access: React.FC = () => {
                   Lumièreビル 1F
                 </p>
                 <p className="text-xs text-gray-500 mt-2">目黒駅 徒歩5分 / 恵比寿駅 徒歩12分</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Clock className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold mb-1">OPEN</h4>
-                <p className="text-sm leading-relaxed">
-                  平日 11:00–22:00<br />
-                  土日祝 10:00–22:00
-                </p>
-                <p className="text-xs text-red-400 mt-1">定休日：水曜日</p>
               </div>
             </div>
 
