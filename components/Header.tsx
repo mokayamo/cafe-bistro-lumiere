@@ -42,7 +42,6 @@ const Header: React.FC = () => {
     { label: 'HOME', id: 'top' },
     { label: 'MENU', id: 'menu' },
     { label: 'ABOUT', id: 'about' },
-    { label: 'GALLERY', id: 'gallery' },
     { label: 'ACCESS', id: 'access' },
   ];
 
