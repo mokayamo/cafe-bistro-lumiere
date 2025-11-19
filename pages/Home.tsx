@@ -10,8 +10,8 @@ const Home: React.FC = () => {
     <div className="w-full">
       <Hero />
       <AboutLite />
-      <Menu />
       <AboutDetail />
+      <Menu />
       <Access />
     </div>
   );
