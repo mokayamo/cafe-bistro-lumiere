@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock } from 'lucide-react';
+import { MapPin, Phone, Clock, Store, Users } from 'lucide-react';
 
 const Access: React.FC = () => {
   return (
@@ -14,41 +14,19 @@ const Access: React.FC = () => {
 
           {/* Info Column */}
           <div className="lg:w-1/3 flex flex-col justify-center gap-6 p-4">
-            {/* Shop Info Table */}
-            <div className="border border-lumiere-accent/20 rounded-sm p-4">
-              <table className="w-full text-xs md:text-sm">
-                <tbody>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-2 text-left font-serif text-lumiere-accent">店舗名</th>
-                    <td className="py-2 text-xs md:text-sm">Cafe & Bistro Lumière</td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-2 text-left font-serif text-lumiere-accent">住所</th>
-                    <td className="py-2 text-xs md:text-sm">東京都目黒区○○1-2-3</td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-2 text-left font-serif text-lumiere-accent">営業時間</th>
-                    <td className="py-2 text-xs md:text-sm">
-                      平日 11:00–22:00<br />
-                      土日祝 10:00–22:00
-                    </td>
-                  </tr>
-                  <tr className="border-b border-lumiere-base">
-                    <th className="py-2 text-left font-serif text-lumiere-accent">定休日</th>
-                    <td className="py-2 text-xs md:text-sm">水曜日</td>
-                  </tr>
-                  <tr>
-                    <th className="py-2 text-left font-serif text-lumiere-accent">座席数</th>
-                    <td className="py-2 text-xs md:text-sm">28席</td>
-                  </tr>
-                </tbody>
-              </table>
+
+            <div className="flex items-start gap-4">
+              <Store className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold mb-1">店舗名</h4>
+                <p className="text-sm">Cafe & Bistro Lumière</p>
+              </div>
             </div>
 
             <div className="flex items-start gap-4">
               <MapPin className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-bold mb-1">ADDRESS</h4>
+                <h4 className="font-bold mb-1">住所</h4>
                 <p className="text-sm leading-relaxed">
                   〒153-0000<br />
                   東京都目黒区○○1-2-3<br />
@@ -59,9 +37,29 @@ const Access: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-4">
+              <Clock className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold mb-1">営業時間</h4>
+                <p className="text-sm leading-relaxed">
+                  平日 11:00–22:00<br />
+                  土日祝 10:00–22:00
+                </p>
+                <p className="text-xs text-red-400 mt-1">定休日：水曜日</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <Users className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold mb-1">座席数</h4>
+                <p className="text-sm">28席</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
               <Phone className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-bold mb-1">TEL</h4>
+                <h4 className="font-bold mb-1">電話番号</h4>
                 <a href="tel:03-0000-0000" className="text-lg font-serif hover:text-lumiere-accent transition-colors">
                   03-0000-0000
                 </a>
