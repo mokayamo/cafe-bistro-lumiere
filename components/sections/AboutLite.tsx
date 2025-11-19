@@ -4,15 +4,16 @@ const AboutLite: React.FC = () => {
   return (
     <section className="py-20 bg-lumiere-base">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-          <div className="md:w-1/2">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div className="md:w-3/5">
             <img
               src="/1.png"
               alt="Cafe latte art in a cozy bistro atmosphere"
-              className="w-full h-auto rounded-sm shadow-lg"
+              className="w-full h-auto rounded-sm shadow-lg object-cover aspect-video"
+              style={{ objectPosition: 'center 75%' }}
             />
           </div>
-          <div className="md:w-1/2 text-center md:text-left">
+          <div className="md:w-2/5 text-center md:text-left">
             <h2 className="font-serif text-2xl md:text-3xl text-lumiere-text font-bold mb-6">
               ゆったりと流れる時間。<br />コーヒーも料理も、丁寧に。
             </h2>

@@ -9,10 +9,10 @@ const AboutDetail: React.FC = () => {
           <div className="w-12 h-1 bg-lumiere-accent mx-auto"></div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
 
           {/* Text Content */}
-          <div className="lg:w-1/2 order-2 lg:order-1">
+          <div className="lg:w-2/5 order-2 lg:order-1">
             <div className="space-y-6 text-lumiere-text/90 leading-relaxed">
               <div>
                 <h3 className="font-serif text-xl font-bold mb-2 text-lumiere-accent">Story</h3>
@@ -41,11 +41,11 @@ const AboutDetail: React.FC = () => {
           </div>
 
           {/* Image */}
-          <div className="lg:w-1/2 order-1 lg:order-2">
-             <img 
-              src="https://picsum.photos/id/431/800/1000" 
-              alt="Barista brewing coffee" 
-              className="w-full h-auto rounded-sm shadow-xl object-cover"
+          <div className="lg:w-3/5 order-1 lg:order-2">
+             <img
+              src="https://picsum.photos/id/431/1200/675"
+              alt="Barista brewing coffee"
+              className="w-full h-auto rounded-sm shadow-xl object-cover aspect-video"
             />
           </div>
 

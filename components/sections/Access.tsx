@@ -3,7 +3,7 @@ import { MapPin, Phone, Clock, Store, Users } from 'lucide-react';
 
 const Access: React.FC = () => {
   return (
-    <section id="access" className="py-24 bg-lumiere-base border-t border-white">
+    <section id="access" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl text-lumiere-text font-bold mb-4">ACCESS</h2>
@@ -13,26 +13,13 @@ const Access: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8 bg-white p-4 md:p-8 shadow-lg rounded-sm max-w-6xl mx-auto">
 
           {/* Info Column */}
-          <div className="lg:w-1/3 flex flex-col justify-center gap-6 p-4">
+          <div className="lg:w-1/3 flex flex-col justify-between h-[400px] p-4">
 
             <div className="flex items-start gap-4">
               <Store className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
               <div>
                 <h4 className="font-bold mb-1">店舗名</h4>
                 <p className="text-sm">Cafe & Bistro Lumière</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
-              <div>
-                <h4 className="font-bold mb-1">住所</h4>
-                <p className="text-sm leading-relaxed">
-                  〒153-0000<br />
-                  東京都目黒区○○1-2-3<br />
-                  Lumièreビル 1F
-                </p>
-                <p className="text-xs text-gray-500 mt-2">目黒駅 徒歩5分 / 恵比寿駅 徒歩12分</p>
               </div>
             </div>
 
@@ -53,6 +40,19 @@ const Access: React.FC = () => {
               <div>
                 <h4 className="font-bold mb-1">座席数</h4>
                 <p className="text-sm">28席</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <MapPin className="w-6 h-6 text-lumiere-accent flex-shrink-0 mt-1" />
+              <div>
+                <h4 className="font-bold mb-1">住所</h4>
+                <p className="text-sm leading-relaxed">
+                  〒153-0000<br />
+                  東京都目黒区○○1-2-3<br />
+                  Lumièreビル 1F
+                </p>
+                <p className="text-xs text-gray-500 mt-2">目黒駅 徒歩5分 / 恵比寿駅 徒歩12分</p>
               </div>
             </div>
 

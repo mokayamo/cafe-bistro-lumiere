@@ -44,13 +44,13 @@ const Menu: React.FC = () => {
           <div className="w-12 h-1 bg-lumiere-accent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {categories.map((category) => (
             <div key={category.title} className="bg-lumiere-base/20 p-8 rounded-sm">
-              <h3 className="font-serif text-2xl text-lumiere-accent font-bold mb-8 border-b border-lumiere-text/10 pb-2">
+              <h3 className="font-serif text-2xl text-lumiere-accent font-bold mb-6 border-b border-lumiere-text/10 pb-2">
                 {category.title}
               </h3>
-              <div className="space-y-8">
+              <div className="space-y-3">
                 {category.items.map((item) => (
                   <div key={item.name} className="flex flex-col gap-1">
                     <div className="flex justify-between items-baseline">
