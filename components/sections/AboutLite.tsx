@@ -6,9 +6,9 @@ const AboutLite: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
           <div className="md:w-1/2">
-            <img 
-              src="https://picsum.photos/id/225/800/600" 
-              alt="Tea and quiet time" 
+            <img
+              src="/1.png"
+              alt="Cafe latte art in a cozy bistro atmosphere"
               className="w-full h-auto rounded-sm shadow-lg"
             />
           </div>
